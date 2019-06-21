@@ -4,9 +4,12 @@ import TodoAppItems from './todo-app-items';
 
 const TodoApp = ( { todos } ) => {
   const elements = todos.map( (elem) => {
+
+      const { id, ...elemProps} = elem;
+
     return (
-    <li>
-      <TodoAppItems { ...elem } />
+    <li key = { id }>
+      <TodoAppItems { ...elemProps } />
     </li>
     )
   })

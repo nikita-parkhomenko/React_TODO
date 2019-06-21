@@ -7,9 +7,9 @@ import TodoApp from './components/todo-app';
 
 const App = () => {
   const todoData = [
-    { label: 'Learn React', important: false },
-    { label: 'Go to Tinder Date', important: false },
-    { label: 'Build React Awesome Page', important: true }
+    { label: 'Learn React', important: false, id: 1 },
+    { label: 'Go to Tinder Date', important: false, id: 2 },
+    { label: 'Build React Awesome Page', important: true, id: 3 }
   ];
 
   return (
