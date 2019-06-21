@@ -2,14 +2,18 @@ import React from 'react';
 import TodoAppItems from './todo-app-items';
 
 
-const TodoApp = () => {
+const TodoApp = ( { todos } ) => {
+  const elements = todos.map( (elem) => {
+    return (
+    <li>
+      <TodoAppItems { ...elem } />
+    </li>
+    )
+  })
 
   return (
     <ul>
-      <li><TodoAppItems label="Learn React" /></li>
-      <li><TodoAppItems label="Go to Tinder Date" /></li>
-      <li><TodoAppItems label="Build React Awesome Page"
-      important /></li>
+      {elements}
     </ul>
   );
 };

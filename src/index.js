@@ -6,17 +6,17 @@ import SearchBar from './components/search-bar';
 import TodoApp from './components/todo-app';
 
 const App = () => {
-
-  const isLoggedIn = true;
-  const loginBox = <span>Please log in.</span>
-  const welcomeBox = <span>Welcome back dude.</span>
+  const todoData = [
+    { label: 'Learn React', important: false },
+    { label: 'Go to Tinder Date', important: false },
+    { label: 'Build React Awesome Page', important: true }
+  ];
 
   return (
     <div>
-      { isLoggedIn ? welcomeBox : loginBox }
       <AppHeader />
       <SearchBar />
-      <TodoApp />
+      <TodoApp todos = { todoData } />
     </div>
   )
 }
@@ -24,3 +24,28 @@ const App = () => {
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root);
+
+const person = {
+  name: {
+    first: 'John',
+    last: 'Doe'
+  },
+  age: 25
+}
+
+const { name: { first: firstName, last: lastName } } = person;
+
+console.log(firstName)
+console.log(lastName)
+
+const animals = {
+  Kate: 'SMM',
+  Jane: 'JS',
+  John: 'JS',
+  Kane: 'Design'
+};
+
+const result = Object.entries(animals)
+  .filter( ([name, value]) => value === 'JS' )
+  .map( ([name, value]) => name )
+console.log(result);
