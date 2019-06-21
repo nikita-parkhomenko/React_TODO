@@ -1,7 +1,11 @@
 import React from 'react';
 
-const TodoAppItems = () => {
-  return <span>Learn React</span>
+const TodoAppItems = ({ label,  important = false }) => {
+  const style = {
+    color: important ? 'tomato' : 'grey'
+  }
+
+  return <span style = { style }>{ label }</span>
 };
 
 export default TodoAppItems;

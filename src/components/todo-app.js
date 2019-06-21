@@ -6,8 +6,10 @@ const TodoApp = () => {
 
   return (
     <ul>
-      <li><TodoAppItems /></li>
-      <li><TodoAppItems /></li>
+      <li><TodoAppItems label="Learn React" /></li>
+      <li><TodoAppItems label="Go to Tinder Date" /></li>
+      <li><TodoAppItems label="Build React Awesome Page"
+      important /></li>
     </ul>
   );
 };
