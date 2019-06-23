@@ -11,9 +11,9 @@ import './app.css';
 const App = () => {
 
   const todoData = [
-    { label: 'Go to Tinder Date', important: false, id: 1 },
+    { label: 'Play tennis', important: false, id: 1 },
     { label: 'Make Awesome App', important: true, id: 2 },
-    { label: 'Play tennis', important: false, id: 3 }
+    { label: 'Go to Tinder Date', important: false, id: 3 }
   ];
 
   return (
