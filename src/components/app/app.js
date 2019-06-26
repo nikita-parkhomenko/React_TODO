@@ -5,10 +5,13 @@ import AppHeader from '../app-header';
 import SearchPanel from '../search-panel';
 import TodoList from '../todo-list';
 import ItemStatusFilter from '../item-status-filter';
+import ItemAddForm from '../item-add-form';
 
 import './app.css';
 
 class App extends React.Component {
+
+  newID = 100;
 
   state = {
     todoData: [
@@ -32,6 +35,19 @@ class App extends React.Component {
     })
   }
 
+  addItem = (text) => {
+    this.setState( ({todoData}) => {
+      const newItem = { label: text, important: false, id: this.newID++ };
+
+      const newData = [...todoData, newItem];
+
+      return {
+        todoData: newData
+      }
+      
+    })
+  }
+
   render() {
     return (
       <div className="todo-app">
@@ -44,6 +60,8 @@ class App extends React.Component {
         <TodoList 
           todos={this.state.todoData} 
           onDeleted={ this.deleteItem } />
+        <ItemAddForm 
+          onAdded={ this.addItem }/>
       </div>
     );
   }
