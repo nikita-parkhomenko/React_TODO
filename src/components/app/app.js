@@ -8,25 +8,45 @@ import ItemStatusFilter from '../item-status-filter';
 
 import './app.css';
 
-const App = () => {
+class App extends React.Component {
 
-  const todoData = [
-    { label: 'Play tennis', important: false, id: 1 },
-    { label: 'Make Awesome App', important: true, id: 2 },
-    { label: 'Go to Tinder Date', important: false, id: 3 }
-  ];
+  state = {
+    todoData: [
+      { label: 'Play tennis', important: false, id: 1 },
+      { label: 'Make Awesome App', important: true, id: 2 },
+      { label: 'Go to Tinder Date', important: false, id: 3 }
+    ]
+  };
 
-  return (
-    <div className="todo-app">
-      <AppHeader toDo={1} done={3} />
-      <div className="top-panel d-flex">
-        <SearchPanel />
-        <ItemStatusFilter />
+  deleteItem = (id) => {
+    this.setState( ({todoData}) => {
+      const index = todoData.findIndex( (el) => el.id === id );
+      
+      const before = todoData.slice(0, index);
+      const after = todoData.slice(index + 1);
+      const newData = [...before, ...after];
+
+      return {
+        todoData: newData
+      }
+    })
+  }
+
+  render() {
+    return (
+      <div className="todo-app">
+        <AppHeader toDo={1} done={3} />
+        <div className="top-panel d-flex">
+          <SearchPanel />
+          <ItemStatusFilter />
+        </div>
+  
+        <TodoList 
+          todos={this.state.todoData} 
+          onDeleted={ this.deleteItem } />
       </div>
-
-      <TodoList todos={todoData} />
-    </div>
-  );
+    );
+  }
 };
 
 export default App;
