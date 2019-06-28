@@ -15,11 +15,21 @@ class App extends React.Component {
 
   state = {
     todoData: [
-      { label: 'Play tennis', important: false, id: 1 },
-      { label: 'Make Awesome App', important: true, id: 2 },
-      { label: 'Go to Tinder Date', important: false, id: 3 }
+      this.createTodoItem('Learn React'),
+      this.createTodoItem('Go to GYM'),
+      this.createTodoItem('Make awesome App')
     ]
   };
+
+  createTodoItem(label) {
+    return {
+      label,
+      done: false,
+      important: false,
+      id: this.newID++
+    }
+  };
+
 
   deleteItem = (id) => {
     this.setState( ( { todoData } ) => {
@@ -37,7 +47,7 @@ class App extends React.Component {
 
   addItem = (text) => {
     this.setState( ( { todoData } ) => {
-      const newItem = { label: text, important: false, id: this.newID++ };
+      const newItem = this.createTodoItem(text);
 
       const newData = [...todoData, newItem ];
 
