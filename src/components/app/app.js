@@ -58,11 +58,24 @@ class App extends React.Component {
   }
 
   onToggleDone = (id) => {
-    console.log('On Done', id);
+    this.setState( ( { todoData } ) => {
+      const index = todoData.findIndex( (el) => el.id === id );
+      const oldItem = todoData[index];
+      const newItem = {...oldItem, done: !oldItem.done};
+      
+      const before = todoData.slice(0, index);
+      const after = todoData.slice(index + 1);
+      const newData = [...before, newItem, ...after];
+
+      return {
+        todoData: newData
+      }
+
+    })
   };
 
   onToggleImportant = (id) => {
-    console.log('On Important', id);
+    
   };
 
   render() {
