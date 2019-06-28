@@ -4,14 +4,8 @@ import './todo-list-item.css';
 
 class TodoListItem extends React.Component {
 
-  state = {
-    done: false,
-    important: false
-  }
-
   render() {
-    const {  label, onDeleted, onToggleDone, onToggleImportant } = this.props;
-    const { done, important } = this.state;
+    const {  label, onDeleted, onToggleDone, onToggleImportant, important, done } = this.props;
 
     let classNames = 'todo-list-item';
     if (done) {
