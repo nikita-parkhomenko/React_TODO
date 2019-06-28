@@ -22,7 +22,7 @@ class App extends React.Component {
   };
 
   deleteItem = (id) => {
-    this.setState( ({todoData}) => {
+    this.setState( ( { todoData } ) => {
       const index = todoData.findIndex( (el) => el.id === id );
       
       const before = todoData.slice(0, index);
@@ -36,15 +36,14 @@ class App extends React.Component {
   }
 
   addItem = (text) => {
-    this.setState( ({todoData}) => {
+    this.setState( ( { todoData } ) => {
       const newItem = { label: text, important: false, id: this.newID++ };
 
-      const newData = [...todoData, newItem];
+      const newData = [...todoData, newItem ];
 
       return {
         todoData: newData
       }
-      
     })
   }
 
