@@ -75,7 +75,20 @@ class App extends React.Component {
   };
 
   onToggleImportant = (id) => {
-    
+    this.setState( ( { todoData } ) => {
+      const index = todoData.findIndex( (el) => el.id === id );
+      const oldItem = todoData[index];
+      const newItem = {...oldItem, important: !oldItem.important };
+
+      const before = todoData.slice(0, index);
+      const after = todoData.slice(index + 1);
+      const newData = [...before, newItem, ...after];
+
+      return {
+        todoData: newData
+      }
+      
+    })
   };
 
   render() {
