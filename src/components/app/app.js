@@ -93,8 +93,9 @@ class App extends React.Component {
 
   render() {
 
-    const doneCount = this.state.todoData.filter( (el) => el.done ).length;
-    const todoCount = this.state.todoData.length - doneCount;
+    const { todoData } = this.state;
+    const doneCount = todoData.filter( (el) => el.done ).length;
+    const todoCount = todoData.length - doneCount;
 
     return (
       <div className="todo-app">
@@ -105,7 +106,7 @@ class App extends React.Component {
         </div>
   
         <TodoList 
-          todos={this.state.todoData} 
+          todos={ todoData } 
           onDeleted={ this.deleteItem }
           onToggleDone = {this.onToggleDone}
           onToggleImportant = {this.onToggleImportant} />
