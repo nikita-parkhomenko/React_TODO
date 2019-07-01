@@ -45,7 +45,7 @@ class App extends React.Component {
     })
   }
 
-  addItem = (text) => {
+  onAdded = (text) => {
     this.setState( ( { todoData } ) => {
       const newItem = this.createTodoItem(text);
 
@@ -111,7 +111,7 @@ class App extends React.Component {
           onToggleDone = {this.onToggleDone}
           onToggleImportant = {this.onToggleImportant} />
         <ItemAddForm 
-          onAdded={ this.addItem }/>
+          onAdded={ this.onAdded }/>
       </div>
     );
   }

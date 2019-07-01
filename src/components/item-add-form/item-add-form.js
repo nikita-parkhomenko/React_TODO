@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './item-add-form.css';
 
-class ItemAddForm extends React.Component {
+class ItemAddForm extends Component {
 
   state = {
     label: ''
