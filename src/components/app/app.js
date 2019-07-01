@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 
 import AppHeader from '../app-header';
@@ -9,7 +9,7 @@ import ItemAddForm from '../item-add-form';
 
 import './app.css';
 
-class App extends React.Component {
+class App extends Component {
 
   newID = 100;
 
